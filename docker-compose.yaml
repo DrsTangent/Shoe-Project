@@ -1,0 +1,37 @@
+version: "3"
+services:
+  
+  ui:
+   build:
+      context: ./ui
+      dockerfile: Dockerfile.dev
+   ports:
+    -  80:3000
+   container_name: mern-ui
+   networks:
+    -  mern-stack-net
+   volumes:
+    -  ./ui/src:/usr/app/src
+    -  ./ui/public:/usr/app/public
+   depends_on:
+    - api
+   stdin_open: true
+   tty: true
+   
+  api:
+   build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+   ports:
+     - 8080:8080
+   container_name: mern-api
+   networks:
+     - mern-stack-net
+   volumes:
+    - ./api/src:/usr/app/src
+   environment:
+      MONGO_CONNECTION_STRING: 'mongodb+srv://alihussainpid:alihussainpid@merntest0.svvvoif.mongodb.net/test'
+
+networks:
+  mern-stack-net:
+    driver: bridge
