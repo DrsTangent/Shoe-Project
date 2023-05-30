@@ -2,6 +2,7 @@ version: "3"
 services:
   
   ui:
+   image: drstangent/mernui
    build:
       context: ./ui
       dockerfile: Dockerfile.dev
@@ -19,11 +20,12 @@ services:
    tty: true
    
   api:
+   image: drstangent/mernapi
    build:
       context: ./api
       dockerfile: Dockerfile.dev
    ports:
-     - 8080:8080
+     - 8020:8020
    container_name: mern-api
    networks:
      - mern-stack-net
