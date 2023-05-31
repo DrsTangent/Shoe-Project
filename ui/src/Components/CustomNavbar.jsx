@@ -17,7 +17,7 @@ export default function CustomNavbar() {
         color: "#fff",
         padding: "0 20px"
     }}> 
-      <div style={{ fontWeight: "bold" }}>Hi! Ali Hussain :D</div>
+      <div style={{ fontWeight: "bold" }}>Hi! Ali Hussain</div>
       <div >
         <Link to="/admin/my-products"><VisibilityIcon style={{width:30, height:30,margin:10,color:'white'}} /></Link>
         <Link to="/admin/add-product" ><AddIcon style={{width:30, height:30, margin:10, color:'white'}} /></Link>
