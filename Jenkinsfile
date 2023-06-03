@@ -3,9 +3,9 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                sh 'pwd'
-                sh 'ls'
-                sh 'echo Hello World'
+                sh 'docker compose build'
+                sh 'docker compose up'
+                sh 'docker compose push'
             }
         }
     }
